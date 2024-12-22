@@ -1,0 +1,45 @@
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/post/67487f24e9a8933548f3ddc2
+
+###
+GET http://localhost:3000/post?sender=KimK
+
+###
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "owner": "KimK",
+    "title": "The Best Post",
+    "content": "This is my first post"
+}
+
+###
+GET http://localhost:3000/comment
+
+###
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+    "author": "David",
+    "content": "Wow",
+    "postId": "674888aaa1a6b39541835fe0"
+}
+
+###
+GET http://localhost:3000/comment/674888aaa1a6b39541835fe0
+
+###
+PUT http://localhost:3000/comment/674e3076acd2b21103886fcf
+Content-Type: application/json
+
+{
+    "author": "David",
+    "content": "Amazing Post!"
+}
+
+###
+DELETE http://localhost:3000/comment/674e2ccec42eddc393fd4420
