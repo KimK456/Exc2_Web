@@ -1,4 +1,4 @@
-GET http://localhost:3000/
+GET http://localhost:3000
 
 ###
 GET http://localhost:3000/post/67487f24e9a8933548f3ddc2
@@ -7,13 +7,21 @@ GET http://localhost:3000/post/67487f24e9a8933548f3ddc2
 GET http://localhost:3000/post?sender=KimK
 
 ###
-POST http://localhost:3000/
+POST http://localhost:3000
 Content-Type: application/json
 
 {
     "owner": "KimK",
     "title": "The Best Post",
     "content": "This is my first post"
+}
+
+###
+PUT http://localhost:3000/post/67700545a15ccc9c652e2c20
+Content-Type: application/json
+
+{
+    "owner": "lulu"
 }
 
 ###

@@ -3,8 +3,8 @@ dotenv.config();
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import express, { Express } from "express";
-import postsRoute from "./routes/posts_route";
-import commentsRoute from "./routes/comments_route";
+import postsRoute from "./routes/posts_routes";
+import commentsRoute from "./routes/comments_routes";
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,11 +18,11 @@ db.once("open", () => console.log("Connected to database"));
 
 const initApp = () => {
   return new Promise<Express>((resolve, reject) => {
-    if (!process.env.DB_CONNECT) {
-      reject("DB_CONNECT is not defined in .env file");
+    if (!process.env.DATABASE_URL) {
+      reject("DATABASE_URL is not defined in .env file");
     } else {
       mongoose
-        .connect(process.env.DB_CONNECT)
+        .connect(process.env.DATABASE_URL)
         .then(() => {
           resolve(app);
         })
