@@ -33,7 +33,11 @@ describe("Comments Tests", () => {
   });
 
   test("Test Create Comment", async () => {
-    const response = await request(app).post("/comment").send(testComments);
+    const response = await request(app).post("/comment").send({
+      comment: "This is a comment",
+      owner: "KimK",
+      postId: (await request(app).get("/posts?owner=TestOwner")).body[0]._id
+    });
     expect(response.statusCode).toBe(201);
     expect(response.body.comment).toBe(testComments.comment);
     expect(response.body.postId).toBe(testComments.postId);

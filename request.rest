@@ -1,7 +1,7 @@
 GET http://localhost:3000/
 
 ###
-GET http://localhost:3000/post/67712f764568e93200b1da30
+GET http://localhost:3000/post/677140f2d3840dc5cf439929
 
 ###
 GET http://localhost:3000/post?sender=KimK
@@ -15,6 +15,9 @@ Content-Type: application/json
     "title": "The Best Post",
     "content": "This is my first post"
 }
+
+###
+DELETE http://localhost:3000/post/677140f2d3840dc5cf439929
 
 ###
 GET http://localhost:3000/comment

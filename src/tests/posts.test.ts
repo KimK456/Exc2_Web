@@ -72,9 +72,9 @@ describe("Posts Tests", () => {
   });
 
   test("Test Delete Post", async () => {
-    const response = await request(app).delete("/post/" + postId);
+    const response = await request(app).delete("/posts/" + postId);
     expect(response.statusCode).toBe(200);
-    const response2 = await request(app).get("/post/" + postId);
+    const response2 = await request(app).get("/posts/" + postId);
     expect(response2.statusCode).toBe(404);
   });
 
