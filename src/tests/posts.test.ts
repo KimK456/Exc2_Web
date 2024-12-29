@@ -18,16 +18,16 @@ afterAll((done) => {
   done();
 });
 
-var postId: string;
+let postId = "";
 describe("Posts Tests", () => {
-  test("Test Get All Posts", async () => {
+  test("Posts test get all", async () => {
     const response = await request(app).get("/posts");
     expect(response.statusCode).toBe(200);
     expect(response.body.length).toBe(0);
   });
 
   test("Test Create Post", async () => {
-    const response = await request(app).post("/posts/").send({
+    const response = await request(app).post("/posts").send({
       title: "Test Post",
       content: "Test Content",
       owner: "TestOwner",
@@ -39,15 +39,7 @@ describe("Posts Tests", () => {
     postId = response.body._id;
   });
 
-  test("Test Get Post By ID", async () => {
-    const response = await request(app).get("/posts/post/" + postId);
-    expect(response.statusCode).toBe(200);
-    expect(response.body.title).toBe("Test Post");
-    expect(response.body.content).toBe("Test Content");
-    expect(response.body.owner).toBe("TestOwner");
-  });
-
-  test("Test Get Post By Owner", async () => {
+  test("Test get post by owner", async () => {
     const response = await request(app).get("/posts?owner=TestOwner");
     expect(response.statusCode).toBe(200);
     expect(response.body.length).toBe(1);
@@ -56,23 +48,19 @@ describe("Posts Tests", () => {
     expect(response.body[0].owner).toBe("TestOwner");
   });
 
-  test("Test Update Post By ID", async () => {
-    const response = await request(app).put("/posts/post/" + postId).send({
-      title: "Test Post - New Name",
-    });
-    expect(response.statusCode).toBe(201);
-    expect(response.body.title).toBe("Test Post - New Name");
+  test("Test get post by id", async () => {
+    const response = await request(app).get("/posts/" + postId);
+    expect(response.statusCode).toBe(200);
+    expect(response.body.title).toBe("Test Post");
     expect(response.body.content).toBe("Test Content");
     expect(response.body.owner).toBe("TestOwner");
-    postId = response.body._id;
   });
-
 
   test("Test Create Post 2", async () => {
     const response = await request(app).post("/posts").send({
       title: "Test Post 2",
       content: "Test Content 2",
-      owner: "Test Owner 2",
+      owner: "TestOwner2",
     });
     expect(response.statusCode).toBe(201);
   });
@@ -83,14 +71,18 @@ describe("Posts Tests", () => {
     expect(response.body.length).toBe(2);
   });
 
-  test("Test create post fail", async () => {
-    const response = await request(app).post("/posts/").send({
+  test("Test Delete Post", async () => {
+    const response = await request(app).delete("/post/" + postId);
+    expect(response.statusCode).toBe(200);
+    const response2 = await request(app).get("/post/" + postId);
+    expect(response2.statusCode).toBe(404);
+  });
+
+  test("Test Create Post fail", async () => {
+    const response = await request(app).post("/posts").send({
       title: "Test Post 2",
       content: "Test Content 2",
     });
     expect(response.statusCode).toBe(400);
   });
-
 });
-
-export default postId

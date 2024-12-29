@@ -1,27 +1,19 @@
-GET http://localhost:3000
+GET http://localhost:3000/
 
 ###
-GET http://localhost:3000/post/67487f24e9a8933548f3ddc2
+GET http://localhost:3000/post/67712f764568e93200b1da30
 
 ###
-GET http://localhost:3000/post?sender=TestOwner
+GET http://localhost:3000/post?sender=KimK
 
 ###
-POST http://localhost:3000
+POST http://localhost:3000/
 Content-Type: application/json
 
 {
     "owner": "KimK",
     "title": "The Best Post",
     "content": "This is my first post"
-}
-
-###
-PUT http://localhost:3000/post/67700545a15ccc9c652e2c20
-Content-Type: application/json
-
-{
-    "owner": "lulu"
 }
 
 ###
@@ -34,11 +26,14 @@ Content-Type: application/json
 {
     "author": "David",
     "content": "Wow",
-    "postId": "67700b72bfef40e16227b228"
+    "postId": "67712fecdbb84f4b57182d8e"
 }
 
 ###
-GET http://localhost:3000/comment/67700b72bfef40e16227b22d
+GET http://localhost:3000/comment/
+
+###
+GET http://localhost:3000/comment/674888aaa1a6b39541835fe0
 
 ###
 PUT http://localhost:3000/comment/674e3076acd2b21103886fcf
@@ -51,3 +46,15 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/comment/674e2ccec42eddc393fd4420
+
+###
+GET http://localhost:3000/users
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "David",
+    "mail": "Wow@gmail.com"
+}

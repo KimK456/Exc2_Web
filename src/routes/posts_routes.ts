@@ -1,16 +1,11 @@
-import { Router } from 'express';
-import * as Post from '../controllers/posts_controller';
+import express from "express";
+const router = express.Router();
+import postsController from "../controllers/posts_controller";
 
-const router: Router = Router();
+router.get("/", postsController.getAll.bind(postsController));
 
-router.get("/", Post.getAllPosts);
+router.get("/:id", postsController.getById.bind(postsController));
 
-router.get("/post/:id", Post.getPostById);
-
-router.get("/post", Post.getPostBySenderId);
-
-router.post("/", Post.createPost);
-
-router.put("/post/:id", Post.editPostById);
+router.post("/", postsController.create.bind(postsController))
 
 export default router;
