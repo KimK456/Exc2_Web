@@ -4,7 +4,7 @@ GET http://localhost:3000
 GET http://localhost:3000/post/67487f24e9a8933548f3ddc2
 
 ###
-GET http://localhost:3000/post?sender=KimK
+GET http://localhost:3000/post?sender=TestOwner
 
 ###
 POST http://localhost:3000
@@ -34,11 +34,11 @@ Content-Type: application/json
 {
     "author": "David",
     "content": "Wow",
-    "postId": "674888aaa1a6b39541835fe0"
+    "postId": "67700b72bfef40e16227b228"
 }
 
 ###
-GET http://localhost:3000/comment/674888aaa1a6b39541835fe0
+GET http://localhost:3000/comment/67700b72bfef40e16227b22d
 
 ###
 PUT http://localhost:3000/comment/674e3076acd2b21103886fcf

@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import postModel from "../models/posts_model";
 import { Express } from "express";
 
-let app: Express;
+var app: Express;
 
 beforeAll(async () => {
   console.log("beforeAll");
@@ -18,7 +18,7 @@ afterAll((done) => {
   done();
 });
 
-let postId = "";
+var postId: string;
 describe("Posts Tests", () => {
   test("Test Get All Posts", async () => {
     const response = await request(app).get("/posts");
@@ -90,4 +90,7 @@ describe("Posts Tests", () => {
     });
     expect(response.statusCode).toBe(400);
   });
+
 });
+
+export default postId
