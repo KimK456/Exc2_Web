@@ -1,6 +1,6 @@
-import usersModel, { IUsers } from "../models/users_model";
+import usersModel, { IUser } from "../models/users_model";
 import BaseController from "./base_controller";
 
-const usersController = new BaseController<IUsers>(usersModel);
+const usersController = new BaseController<IUser>(usersModel);
 
 export default usersController
