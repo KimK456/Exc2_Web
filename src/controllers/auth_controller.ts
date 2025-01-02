@@ -210,5 +210,6 @@ export default {
     register,
     login,
     refresh,
-    logout
+    logout,
+    authMiddleware
 };
