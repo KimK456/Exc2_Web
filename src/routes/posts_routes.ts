@@ -1,13 +1,15 @@
 import express from "express";
 const router = express.Router();
 import postsController from "../controllers/posts_controller";
+import auth_controller from "../controllers/auth_controller";
+const authenticate = auth_controller.authMiddleware
 
-router.get("/", postsController.getAll.bind(postsController));
+router.get("/", authenticate, postsController.getAll.bind(postsController));
 
-router.get("/:id", postsController.getById.bind(postsController));
+router.get("/:id", authenticate, postsController.getById.bind(postsController));
 
-router.post("/", postsController.create.bind(postsController))
+router.post("/", authenticate, postsController.create.bind(postsController))
 
-router.delete("/:id", postsController.deleteItem.bind(postsController))
+router.delete("/:id", authenticate, postsController.deleteItem.bind(postsController))
 
 export default router;
