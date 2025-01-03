@@ -51,6 +51,7 @@ const generateToken = (userId: string): tTokens | null => {
         refreshToken: refreshToken
     };
 };
+
 const login = async (req: Request, res: Response) => {
     try {
         const user = await userModel.findOne({ email: req.body.email });

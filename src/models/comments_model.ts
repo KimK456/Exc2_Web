@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import userModel from "../models/user_model"
 
 export interface IComments {
   comment: string;
-  owner: string;
+  user: mongoose.Schema.Types.ObjectId;
   postId: string;
 }
 const commentsSchema = new mongoose.Schema<IComments>({
@@ -10,12 +11,13 @@ const commentsSchema = new mongoose.Schema<IComments>({
     type: String,
     required: true,
   },
-  owner: {
+  postId: {
     type: String,
     required: true,
   },
-  postId: {
-    type: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: userModel,
     required: true,
   },
 });

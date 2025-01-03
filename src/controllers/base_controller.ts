@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response } from "express";
 import { Model } from "mongoose";
 
@@ -40,7 +42,12 @@ class BaseController<T> {
 
     async create(req: Request, res: Response): Promise<void> {
         try {
-            const item = await this.model.create(req.body);
+            const userId  = req.params.userId;
+            const data = {
+                ...req.body,
+                "user": userId
+            };
+            const item = await this.model.create(data);
             res.status(201).send(item);
         } catch (error) {
             res.status(400).send(error);
