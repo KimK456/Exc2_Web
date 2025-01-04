@@ -66,7 +66,9 @@ class BaseController<T> {
 
     async updateItem(req: Request, res: Response): Promise<void> {
         try {
-            const item = await this.model.findByIdAndUpdate(req.body);
+            const id = req.params.id;
+            const data = req.body
+            const item = await this.model.findByIdAndUpdate(id, data);
             res.status(201).send(item);
         } catch (error) {
             res.status(400).send(error);

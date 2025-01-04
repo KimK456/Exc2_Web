@@ -10,6 +10,8 @@ router.get("/:id", authenticate, postsController.getById.bind(postsController));
 
 router.post("/", authenticate, postsController.create.bind(postsController))
 
+router.put("/:id", authenticate, postsController.updateItem.bind(postsController))
+
 router.delete("/:id", authenticate, postsController.deleteItem.bind(postsController))
 
 export default router;

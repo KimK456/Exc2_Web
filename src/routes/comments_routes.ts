@@ -10,6 +10,8 @@ router.get("/:id", authenticate, commentsController.getById.bind(commentsControl
 
 router.post("/", authenticate, commentsController.create.bind(commentsController))
 
+router.put("/:id", authenticate, commentsController.updateItem.bind(commentsController))
+
 router.delete("/:id", authenticate, commentsController.deleteItem.bind(commentsController))
 
 export default router;
