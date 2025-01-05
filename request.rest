@@ -58,6 +58,7 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
+    "username": "KimK",
     "email": "Kim@gmail.com",
     "password": "password"
 }
@@ -67,6 +68,7 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
+    "username": "KimK",
     "email": "Kim@gmail.com",
     "password": "password"
 }
@@ -76,5 +78,5 @@ POST http://localhost:3000/auth/refresh
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhNzE5NTRhZjk2OTZmMDI2ODVjOTgiLCJyYW5kb20iOiIwLjMzNzE3NDM2NTM0MzExNTYiLCJpYXQiOjE3MzYwNzc3MTksImV4cCI6MTczNjY4MjUxOX0.Kl0dreF1ZBMhK2Cuf4uojfr4HyD60LAZ8TBFZ-iMdww"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhNzk3OWI2OTM3NmFiODA5NGU3MTIiLCJyYW5kb20iOiIwLjYxNDU0Njk1OTQ2OTY1MTgiLCJpYXQiOjE3MzYwNzk3NDgsImV4cCI6MTczNjY4NDU0OH0.4LU0bFwJ0fg1l3Jffcy5a5BnDBGFKH-88Vc97HiRbUo"
 }

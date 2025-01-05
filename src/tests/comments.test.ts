@@ -1,36 +1,36 @@
-// import request from "supertest";
-// import initApp from "../server";
-// import mongoose from "mongoose";
-// import commentsModel from "../models/comments_model";
-// import { Express } from "express";
+import request from "supertest";
+import initApp from "../server";
+import mongoose from "mongoose";
+import commentsModel from "../models/comments_model";
+import { Express } from "express";
 
-// var app: Express;
-// const testComments = {
-//   comment: "This is a comment",
-//   owner: "KimK",
-//   postId: "6770f85905589a6c4159e0b1"
-// }
+var app: Express;
+const testComments = {
+  comment: "This is a comment",
+  owner: "KimK",
+  postId: "6770f85905589a6c4159e0b1"
+}
 
-// beforeAll(async () => {
-//   console.log("beforeAll");
-//   app = await initApp();
-//   await commentsModel.deleteMany();
-// });
+beforeAll(async () => {
+  console.log("beforeAll");
+  app = await initApp();
+  await commentsModel.deleteMany();
+});
 
-// afterAll((done) => {
-//   console.log("afterAll");
-//   mongoose.connection.close();
-//   done();
-// });
+afterAll((done) => {
+  console.log("afterAll");
+  mongoose.connection.close();
+  done();
+});
 
-// var commentId = "";
+var commentId = "";
 
-// describe("Comments Tests", () => {
-//   test("Comments test get all", async () => {
-//     const response = await request(app).get("/comments");
-//     expect(response.statusCode).toBe(200);
-//     expect(response.body.length).toBe(0);
-//   });
+describe("Comments Tests", () => {
+  test("Comments test get all", async () => {
+    const response = await request(app).get("/comments");
+    expect(response.statusCode).toBe(200);
+    expect(response.body.length).toBe(0);
+  });
 
 //   test("Test Create Comment", async () => {
 //     const response = await request(app).post("/comments").send({
@@ -61,4 +61,4 @@
 //     expect(response.body.postId).toBe(testComments.postId);
 //     expect(response.body.owner).toBe(testComments.owner);
 //   });
-// });
+});
