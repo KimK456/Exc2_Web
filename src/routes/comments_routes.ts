@@ -89,7 +89,7 @@ router.get("/", commentsController.getAll.bind(commentsController));
  *       500:
  *         description: Server error
  */
-router.get("/:id", commentsController.getById.bind(commentsController));
+router.get("/:id", commentsController.getByPostId.bind(commentsController));
 
 /**
  * @swagger

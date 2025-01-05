@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 import userModel from "../models/user_model"
+import postModel from "../models/posts_model"
 
 export interface IComments {
   comment: string;
   user: mongoose.Schema.Types.ObjectId;
-  postId: string;
+  postId: mongoose.Schema.Types.ObjectId;
 }
 const commentsSchema = new mongoose.Schema<IComments>({
   comment: {
@@ -12,7 +13,8 @@ const commentsSchema = new mongoose.Schema<IComments>({
     required: true,
   },
   postId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: postModel,
     required: true,
   },
   user: {
