@@ -60,7 +60,7 @@ const authenticate = auth_controller.authMiddleware
  *       500:
  *         description: Server error
  */
-router.get("/", authenticate, postsController.getAll.bind(postsController));
+router.get("/", postsController.getAll.bind(postsController));
 
 /**
  * @swagger
@@ -89,7 +89,7 @@ router.get("/", authenticate, postsController.getAll.bind(postsController));
  *       500:
  *         description: Server error
  */
-router.get("/:id", authenticate, postsController.getById.bind(postsController));
+router.get("/:id", postsController.getById.bind(postsController));
 
 /**
  * @swagger

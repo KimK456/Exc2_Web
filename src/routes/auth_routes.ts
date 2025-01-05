@@ -140,7 +140,7 @@ router.post("/login", authController.login);
  *       500:
  *         description: Server error
  */
-router.post("/refresh", authenticate, authController.refresh);
+router.post("/refresh", authController.refresh);
 
 /**
  * @swagger
@@ -168,6 +168,6 @@ router.post("/refresh", authenticate, authController.refresh);
  *       500:
  *         description: Server error
  */
-router.post("/logout", authenticate, authController.logout);
+router.post("/logout", authController.logout);
 
 export default router;

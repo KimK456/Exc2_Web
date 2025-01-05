@@ -152,6 +152,7 @@ const logout = async (req: Request, res: Response) => {
 
 const refresh = async (req: Request, res: Response) => {
     try {
+        console.log(req.body.refreshToken)
         const user = await verifyRefreshToken(req.body.refreshToken);
         if (!user) {
             res.status(400).send("fail");
